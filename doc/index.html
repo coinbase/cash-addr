@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="./README_md.html">README</a>
+  
+    <li><a href="./cash-addr_gemspec.html">cash-addr.gemspec</a>
+  
+  </ul>
+</div>
+
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CashAddr.html">CashAddr</a>
+  
+    <li><a href="./CashAddr/Converter.html">CashAddr::Converter</a>
+  
+    <li><a href="./CashAddr/InvalidAddress.html">CashAddr::InvalidAddress</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+
+
+<h1 id="label-CashAddr"><a href="CashAddr.html">CashAddr</a><span><a href="#label-CashAddr">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Utility to convert between base58 and <a href="CashAddr.html">CashAddr</a>
+BCH addresses.</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Add this line to your application&#39;s Gemfile:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&#39;cash-addr&#39;</span>
+</pre>
+
+<p>And then execute:</p>
+
+<pre>$ bundle</pre>
+
+<p>Or install it yourself as:</p>
+
+<pre>$ gem install cash-addr</pre>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>To convert from a legacy address to CashAddr:</p>
+
+<pre class="ruby"><span class="ruby-constant">CashAddr</span><span class="ruby-operator">::</span><span class="ruby-constant">Converter</span>.<span class="ruby-identifier">to_cash_address</span>(<span class="ruby-string">&#39;mmRH4e9WW4ekZUP5HvBScfUyaSUjfQRyvD&#39;</span>)
+</pre>
+
+<p>To convert from a <a href="CashAddr.html">CashAddr</a> address to legacy:</p>
+
+<pre class="ruby"><span class="ruby-constant">CashAddr</span><span class="ruby-operator">::</span><span class="ruby-constant">Converter</span>.<span class="ruby-identifier">to_legacy_address</span>(<span class="ruby-string">&#39;bchtest:qpqtmmfpw79thzq5z7s0spcd87uhn6d34uqqem83hf&#39;</span>)
+</pre>
+
+<p>To validate a BCH address:</p>
+
+<pre class="ruby"><span class="ruby-constant">CashAddr</span><span class="ruby-operator">::</span><span class="ruby-constant">Converter</span>.<span class="ruby-identifier">is_valid?</span>(<span class="ruby-string">&#39;bchtest:qpqtmmfpw79thzq5z7s0spcd87uhn6d34uqqem83hf&#39;</span>)
+</pre>
+
+<p>To display a BCH <a href="CashAddr.html">CashAddr</a> address without the
+prefix:</p>
+
+<pre class="ruby"><span class="ruby-constant">CashAddr</span><span class="ruby-operator">::</span><span class="ruby-constant">Converter</span>.<span class="ruby-identifier">display_address</span>(<span class="ruby-string">&#39;bchtest:qpqtmmfpw79thzq5z7s0spcd87uhn6d34uqqem83hf&#39;</span>)
+</pre>
+
+<p>NOTE: Testnet addresses are used as examples, but both testnet and mainnet
+are supported.</p>
+
+<h2 id="label-Development">Development<span><a href="#label-Development">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>After checking out the repo, run <code>bin/setup</code> to install
+dependencies. Then, run <code>rake spec</code> to run the tests. You can
+also run <code>bin/console</code> for an interactive prompt that will allow
+you to experiment.</p>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake
+install</code>. To release a new version, update the version number in
+<code>version.rb</code>, and then run <code>bundle exec rake
+release</code>, which will create a git tag for the version, push git
+commits and tags, and push the <code>.gem</code> file to <a
+href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Docs are generated via rdoc and are located in the <code>doc</code>
+directory. To update the documentation:</p>
+
+<pre>rdoc --main README.md -x Gemfile -x Rakefile -x setup -x address -x crypto</pre>
+
+<h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a
+href="https://github.com/coinbase/cash-addr">github.com/coinbase/cash-addr</a>.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The gem is available as open source under the terms of the <a
+href="https://opensource.org/licenses/Apache-2.0">Apache 2.0 License</a>.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.3.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

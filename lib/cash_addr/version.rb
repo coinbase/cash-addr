@@ -3,5 +3,5 @@
 module CashAddr
   ##
   # Version of the cash-addr gem.
-  VERSION = '0.2.0'
+  VERSION = '0.3.0'
 end

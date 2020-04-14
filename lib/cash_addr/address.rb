@@ -28,7 +28,7 @@ module CashAddr
       @payload = payload
       @digest = digest
 
-      @prefix = prefix ? prefix : DEFAULT_PREFIX
+      @prefix = prefix || DEFAULT_PREFIX
 
       @version = 'P2SHTestnet' if prefix == 'bchtest' && version == 'P2SH'
       @version = 'P2PKHTestnet' if prefix == 'bchtest' && version == 'P2PKH'
@@ -65,6 +65,7 @@ module CashAddr
     def self.from_string(address_string)
       raise(CashAddr::InvalidAddress, 'Expected string as input') unless address_string.is_a?(String)
       return legacy_string(address_string) unless address_string.include?(':')
+
       cash_string(address_string)
     end
 

@@ -1,7 +1,6 @@
-
 # frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'cash_addr/version'
 
@@ -22,10 +21,10 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '~> 0.52.1'
+  spec.add_development_dependency 'bundler', '~> 2.1.4'
+  spec.add_development_dependency 'rake', '~> 13.0.1'
+  spec.add_development_dependency 'rspec', '~> 3.9.0'
+  spec.add_development_dependency 'rubocop', '~> 0.81.0'
 
-  spec.add_dependency 'base58', '~> 0.2.2'
+  spec.add_dependency 'base58', '~> 0.2.3'
 end
